@@ -1,36 +1,157 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Blood Safe - Blood Donation Platform
+
+Blood Safe is a modern web application that connects blood donors with those in need. The platform features a user-friendly interface with map integration to locate nearby blood donation centers and donors.
+
+## Features
+
+- 🔐 Secure user authentication and authorization
+- 🗺️ Interactive map to locate blood donation centers
+- 👤 User dashboard for managing donations
+- 📱 Responsive design for all devices
+- 🔍 Search and filter functionality
+- 📊 Real-time updates and notifications
+
+## Tech Stack
+
+### Frontend
+- Next.js 15.3.3
+- React 19
+- TailwindCSS
+- Leaflet for maps
+- NextAuth for authentication
+- Prisma ORM
+
+### Backend
+- Express.js
+- MongoDB with Mongoose
+- JWT Authentication
+- Express Validator
+- Morgan for logging
+
+## Prerequisites
+
+Before you begin, ensure you have the following installed:
+- Node.js (v18 or higher)
+- MongoDB
+- npm or yarn
 
 ## Getting Started
 
-First, run the development server:
-
+### 1. Clone the Repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <repository-url>
+cd blood_safe
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Frontend Setup
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+1. Install dependencies:
+```bash
+npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. Create a `.env.local` file in the root directory with the following variables:
+```env
+NEXT_PUBLIC_API_URL=http://localhost:5000
+NEXTAUTH_SECRET=your-secret-key
+NEXTAUTH_URL=http://localhost:3000
+```
 
-## Learn More
+3. Start the development server:
+```bash
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+The frontend will be available at [http://localhost:3000](http://localhost:3000)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 3. Backend Setup
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Navigate to the backend directory:
+```bash
+cd backend
+```
 
-## Deploy on Vercel
+2. Install dependencies:
+```bash
+npm install
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. Create a `.env` file in the backend directory with the following variables:
+```env
+PORT=5000
+MONGODB_URI=mongodb://localhost:27017/blood_safe
+JWT_SECRET=your-jwt-secret
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4. Start the backend server:
+```bash
+npm run dev
+```
+
+The backend API will be available at [http://localhost:5000](http://localhost:5000)
+
+## Development
+
+### Frontend Development
+- The main application code is in the `src/app` directory
+- Components are located in `src/components`
+- API services are in `src/services`
+
+### Backend Development
+- Main server code is in `backend/src`
+- API routes are organized in separate files
+- Database models are in the models directory
+
+## Testing
+
+### Frontend Tests
+```bash
+npm run test
+```
+
+### Backend Tests
+```bash
+cd backend
+npm run test
+```
+
+## Deployment
+
+### Frontend Deployment
+1. Build the application:
+```bash
+npm run build
+```
+
+2. Start the production server:
+```bash
+npm start
+```
+
+### Backend Deployment
+1. Build the application:
+```bash
+cd backend
+npm run build
+```
+
+2. Start the production server:
+```bash
+npm start
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Support
+
+For support, email [support@bloodsafe.com](mailto:support@bloodsafe.com) or open an issue in the repository.
