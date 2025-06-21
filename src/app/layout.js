@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: 'Blood Safe',
+  title: 'Blood Link',
   description: 'A platform for blood donation and management',
 };
 

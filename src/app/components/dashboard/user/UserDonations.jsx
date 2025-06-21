@@ -30,9 +30,13 @@ const UserDonations = () => {
     console.log('Edit donation:', donationId);
   };
 
-  const handleDelete = (donationId) => {
-    // TODO: Implement delete functionality
-    console.log('Delete donation:', donationId);
+  const handleDelete = async (donationId) => {
+    try {
+      await donationService.deleteDonation(donationId);
+      setDonations(prevDonations => prevDonations.filter(donation => donation._id !== donationId));
+    } catch (error) {
+      console.error('Error deleting donation:', error);
+    }
   };
 
   if (loading) {

@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { body, validationResult } = require('express-validator');
+const { body, validationResult, param } = require('express-validator');
 const Donation = require('../models/Donation');
 const User = require('../models/User');
 
@@ -171,4 +171,22 @@ router.get('/recipient/:userId', async (req, res) => {
   }
 });
 
+// Delete a donation 
+router.delete('/:id', [
+  param('id').isMongoId().withMessage('Invalid donation ID'),
+  validateRequest
+], async (req, res) => {
+  try {
+    const donation = await Donation.findById(req.params.id);
+    if (!donation) {
+      return res.status(404).json({ message: 'Donation not found' });
+    }
+    await donation.deleteOne();
+    res.json({ message: 'Donation deleted' });
+  } catch (error) {
+    res.statuserror.message(500).json({ message: 'Server error', error: error.message });
+  }
+});
+
 module.exports = router; 
+  console.log()

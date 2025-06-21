@@ -98,7 +98,6 @@ router.get('/:id/donations', auth, async (req, res) => {
 // Get hospital statistics
 router.get('/:id/stats', async (req, res) => {
   try {
-    console.log('Fetching stats for hospital ID:', req.params.id);
     
     // Get blood request stats
     const bloodRequestStats = await BloodRequest.aggregate([
@@ -118,7 +117,6 @@ router.get('/:id/stats', async (req, res) => {
         }
       }
     ]);
-    console.log('Blood request stats:', bloodRequestStats);
 
     // Get blood inventory stats
     const bloodInventoryStats = await BloodInventory.aggregate([
@@ -133,7 +131,6 @@ router.get('/:id/stats', async (req, res) => {
         }
       }
     ]);
-    console.log('Blood inventory stats:', bloodInventoryStats);
 
     // Calculate total available units
     const totalAvailableUnits = bloodInventoryStats.reduce((acc, curr) => acc + curr.availableUnits, 0);
@@ -141,8 +138,6 @@ router.get('/:id/stats', async (req, res) => {
     // Calculate total reserved units
     const totalReservedUnits = bloodInventoryStats.reduce((acc, curr) => acc + curr.reservedUnits, 0);
 
-    console.log('Total available units:', totalAvailableUnits);
-    console.log('Total reserved units:', totalReservedUnits);
 
     res.json({
       bloodRequestStats,

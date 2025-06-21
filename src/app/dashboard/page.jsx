@@ -267,7 +267,7 @@ const UserDashboard = () => {
     <div className="space-y-6">
       {/* Mode Toggle */}
       <div className="card-theme rounded-lg p-4">
-        <div className="flex items-center justify-center space-x-4 rtl:space-x-reverse">
+        <div className="flex items-center justify-center space-x-4">
           <button
             onClick={() => setUserMode('donor')}
             className={`px-6 py-2 rounded-lg flex items-center space-x-2 rtl:space-x-reverse transition-all ${

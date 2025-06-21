@@ -122,7 +122,7 @@ const BloodDonationLanding = () => {
               <a href="#contact" className="text-gray-700 hover:text-red-500 transition-colors">تواصل</a>
               <button 
                 onClick={() => isAuthenticated ? router.push('/dashboard') : router.push('/login')}
-                className="bg-gradient-to-r from-red-500 to-pink-500 text-white px-6 py-2 rounded-full hover:shadow-lg transform hover:-translate-y-1 transition-all"
+                className="ms-4 bg-gradient-to-r from-red-500 to-pink-500 text-white px-6 py-2 rounded-full hover:shadow-lg transform hover:-translate-y-1 transition-all"
               >
                 {isAuthenticated ? 'لوحة التحكم' : 'تسجيل الدخول'}
               </button>
@@ -138,7 +138,7 @@ const BloodDonationLanding = () => {
         <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
           <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}>
             <div className="mb-8">
-              <div className="inline-flex items-center space-x-2 rtl:space-x-reverse bg-red-100 text-red-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <div className="mt-2 inline-flex items-center space-x-2 rtl:space-x-reverse bg-red-100 text-red-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
                 <Heart className="h-4 w-4 animate-pulse" />
                 <span>كل قطرة تعني حياة</span>
               </div>
@@ -220,8 +220,8 @@ const BloodDonationLanding = () => {
       {/* Story Section */}
       <section id="about" className="py-20 relative">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold mb-6 bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
+          <div className="text-center mb-16 mt-4">
+            <h2 className="p-2 text-5xl font-bold mb-6 bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
               قصة تبدأ بك
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -258,7 +258,7 @@ const BloodDonationLanding = () => {
       {/* How It Works */}
       <section id="how-it-works" className="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 p-2 mt-4">
             <h2 className="text-5xl font-bold mb-6 text-gray-800">كيف يعمل النظام</h2>
             <p className="text-xl text-gray-600">عملية بسيطة وسريعة لإنقاذ الأرواح</p>
           </div>
@@ -342,7 +342,7 @@ const BloodDonationLanding = () => {
                 ].map((feature, index) => {
                   const Icon = feature.icon;
                   return (
-                    <div key={index} className="flex items-start space-x-4 rtl:space-x-reverse">
+                    <div key={index} className="flex items-start space-x-4 ">
                       <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-red-500 to-pink-500 rounded-xl flex items-center justify-center">
                         <Icon className="h-6 w-6 text-white" />
                       </div>
@@ -356,7 +356,7 @@ const BloodDonationLanding = () => {
               </div>
             </div>
             
-            <div className="relative">
+            <div className="relative text-black">
               <div className="bg-gradient-to-br from-red-100 to-pink-100 rounded-3xl p-8 transform rotate-3 hover:rotate-0 transition-transform duration-500">
                 <div className="bg-white rounded-2xl p-6 shadow-xl">
                   <div className="flex items-center justify-between mb-6">
@@ -398,7 +398,7 @@ const BloodDonationLanding = () => {
             انضم إلى آلاف الأبطال الذين يصنعون الفرق كل يوم. 
             تبرعك البسيط قد يكون الأمل الوحيد لشخص ينتظر معجزة.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 rtl:sm:space-x-reverse">
+          <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 space-x-6">
             <button 
               onClick={handleRegister}
               className="group bg-white text-red-500 px-10 py-4 rounded-2xl font-bold text-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 flex items-center space-x-3 rtl:space-x-reverse"

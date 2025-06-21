@@ -29,46 +29,46 @@ const UserAvailableRequests = () => {
     }
   }, []);
 
-  useEffect(() => {
-    const fetchAvailableRequests = async () => {
-      try {
-        // Get user's blood type from their profile
-        const userProfile = await userService.getProfile();
-        const userBloodType = userProfile.bloodType;
+  const fetchAvailableRequests = async () => {
+    try {
+      // Get user's blood type from their profile
+      const userProfile = await userService.getProfile();
+      const userBloodType = userProfile.bloodType;
 
-        // Get all pending requests
-        const data = await bloodRequestService.getAll({ status: 'PENDING' });
-        
-        // Filter requests that match user's blood type
-        const matchingRequests = data.filter(request => request.bloodType === userBloodType);
+      // Get all pending requests
+      const data = await bloodRequestService.getAll({ status: 'PENDING' });
+      
+      // Filter requests that match user's blood type
+      const matchingRequests = data.filter(request => request.bloodType === userBloodType);
 
-        // Sort by distance if user location is available
-        if (userLocation) {
-          matchingRequests.sort((a, b) => {
-            const distanceA = calculateDistance(
-              userLocation.latitude,
-              userLocation.longitude,
-              a.location.coordinates[1],
-              a.location.coordinates[0]
-            );
-            const distanceB = calculateDistance(
-              userLocation.latitude,
-              userLocation.longitude,
-              b.location.coordinates[1],
-              b.location.coordinates[0]
-            );
-            return distanceA - distanceB;
-          });
-        }
-
-        setRequests(matchingRequests);
-      } catch (error) {
-        setError('Failed to fetch available requests');
-        console.error('Error fetching requests:', error);
-      } finally {
-        setLoading(false);
+      // Sort by distance if user location is available
+      if (userLocation) {
+        matchingRequests.sort((a, b) => {
+          const distanceA = calculateDistance(
+            userLocation.latitude,
+            userLocation.longitude,
+            a.location.coordinates[1],
+            a.location.coordinates[0]
+          );
+          const distanceB = calculateDistance(
+            userLocation.latitude,
+            userLocation.longitude,
+            b.location.coordinates[1],
+            b.location.coordinates[0]
+          );
+          return distanceA - distanceB;
+        });
       }
-    };
+
+      setRequests(matchingRequests);
+    } catch (error) {
+      setError('Failed to fetch available requests');
+      console.error('Error fetching requests:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+  useEffect(() => {
 
     if (userLocation) {
       fetchAvailableRequests();

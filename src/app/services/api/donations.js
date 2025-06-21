@@ -53,5 +53,10 @@ export const donationService = {
   getStats: async () => {
     const response = await api.get('/donations/stats');
     return response.data;
+  },
+  // Delete a donation
+  deleteDonation: async (id) => {
+    const response = await api.delete(`/donations/${id}`);
+    return response.data;
   }
 }; 
